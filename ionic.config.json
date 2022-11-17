@@ -1,0 +1,7 @@
+{
+  "name": "bingo15V2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
