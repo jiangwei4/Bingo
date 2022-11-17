@@ -234,3 +234,30 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+.above-image {
+  height: 24px;
+  width: 100%;
+  position: absolute;
+  margin-top: -24px;
+  text-align: center;
+  background-color: white;
+  opacity: 0.6;
+}
+
+table{
+  width: 100%;
+}
+
+.grille{
+  border: 1px solid black;
+}
+ion-content {
+  --background: transparent;
+}
+
+td 
+{
+    text-align: center; 
+    vertical-align: middle;
+}

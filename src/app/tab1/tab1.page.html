@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Création de grille
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <table>
+    <tr *ngFor="let g of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]; let i = index">
+      <td *ngFor="let g of [0,1,2,3,4]; let j = index"  style="padding: 4px 40px 4px 4px; background-color: {{color[(((i+j*18+1) - ((i+j*18+1) % 10))) / 10]}};" (click)="changeVal(i+j*18+1)" >
+        <table style="margin: 0px 0px 0px 0px; width:100%;">
+          <tr style="width:100%;">
+        <td><ion-checkbox [checked] = "grille[i+j*18+1] == 1 "></ion-checkbox></td>
+        <td></td>
+        <td><ion-label text-center><strong>{{i+(j*18+1)}}</strong></ion-label></td>
+      </tr>
+      </table>
+      </td>
+    </tr>
+  </table>
+  <fieldset>
+    <table>
+      <tr><th style="width: 25%;">Inférieur</th><th style="width: 25%;">Parité</th><th style="width: 25%;">Moyenne</th><th style="width: 25%;">Commun</th></tr>
+      <tr><td>{{maxListe[0]}}%</td><td>{{maxListe[1]}}%</td><td>{{maxListe[2]}}%</td><td>{{maxListe[3]}}%</td></tr>
+      <tr><td>{{infoGrille[0]}}%</td><td>{{infoGrille[1]}}%</td><td>{{infoGrille[2]}}%</td><td>{{infoGrille[3]}}%</td></tr>
+    </table>
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-buttons slot="start">
+        <ion-button color="warning" fill="solid" (click)="effacer()">Effacer</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="secondary">
+        <ion-button  (click)="add()" fill="solid" color="primary" [disabled]="disabled()">Ajouter</ion-button>
+      </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-
+  </fieldset>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
