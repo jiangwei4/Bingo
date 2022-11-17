@@ -197,8 +197,8 @@
    */
 
   .md body {
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+    //--ion-background-color: #121212;
+    //--ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
@@ -235,13 +235,12 @@
   }
 }
 
-.above-image {
-  height: 24px;
-  width: 100%;
+.filigrane{
   position: absolute;
-  margin-top: -24px;
-  text-align: center;
-  background-color: white;
+  bottom: 14vw;
+  height: 100vh;
+  width: 162%;
+  left: -30vw;
   opacity: 0.6;
 }
 
@@ -252,12 +251,17 @@ table{
 .grille{
   border: 1px solid black;
 }
-ion-content {
-  --background: transparent;
-}
 
+    ion-content {
+  --background: transparent !important;
+}
 td 
 {
     text-align: center; 
     vertical-align: middle;
 }
+
+/*.infoGrille{
+  position: absolute;
+  top:0px;
+}*/
