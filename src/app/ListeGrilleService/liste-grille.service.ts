@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ListeGrilleService {
+  public apiAddress : string = "http://192.168.1.172:9000/"
   public listeGrille: any = []
   public infoListeGrille: any = []
   public listePari = [0, 0.02, 0.27, 1.13, 3.50, 9.13, 16.22, 21.52, 19.99, 15.33, 8.76, 3.01, 0.88, 0.20, 0, 0]
@@ -29,6 +30,10 @@ export class ListeGrilleService {
         cpt += 1
     })
     return cpt
+  }
+
+  changeAPIAddress(value:string){
+    this.apiAddress = value
   }
 
 

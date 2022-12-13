@@ -26,5 +26,9 @@
       <ion-label>2 nombres identiques maximum par grille</ion-label>
     </ion-item>
   </ion-list>
+  <ion-item>
+    <ion-label>API adresse :</ion-label>
+    <ion-input [(ngModel)]=apiaddress (change)=changeAPIAddress()></ion-input>
+  </ion-item>
   <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>

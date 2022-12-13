@@ -58,14 +58,16 @@ export class CameraPage implements OnInit {
   
 
   ngOnInit() {
-     axios.get<APIGET>("http://192.168.1.172:9000/")
+  } 
+
+  ionViewWillEnter(){
+    axios.get<APIGET>(this.listeGrilleService.apiAddress)
     .then(response => {
-      alert(response.data.message)
       //this.imageB64First = 'data:image/jpeg;base64,'+ response.image 
     }).catch(function (error) {
       alert(error)
-    });
-  } 
+    })
+  }
  
   startCamera() {
     if (!this.cameraOpen) {
@@ -93,15 +95,9 @@ export class CameraPage implements OnInit {
 
   savePicture() {
     this.pictureIs = false
-    /*this.rotate(this.imageB64, -this.rotaVal, (b64) => {
-      //this.photoService.addNewToGallery(this.iaService, b64)
-    })*/
-    console.log(this.imageB64)
     this.listeGrilleService.add(this.currentGrille,this.infoGrille)
     this.infoGrille = [0,0,0,0,"",0]
     this.listeGrilleService.addGlobal()
-
-
     this.imageB64 = ""
     this.returnMenu()
     this.router.navigate(['/camera'])
@@ -149,14 +145,14 @@ export class CameraPage implements OnInit {
       this.imageB64 =   this.imageB64First
       this.rotate(this.imageB64, -90, async (b64) => {
         b64 = b64.split(',')[1]
-        await axios.post<APIPOST>("http://192.168.1.172:9000",{imageB64:"'"+b64+"'"})
+        await axios.post<APIPOST>(this.listeGrilleService.apiAddress,{imageB64:"'"+b64+"'"})
           .then(resp => {
           this.currentGrilleString = resp.data.optout
           this.currentGrille = JSON.parse(resp.data.optout)
           this.imageB64 = 'data:image/jpeg;base64,'+ resp.data.image   
           this.grilleValide = this.listeGrilleService.contientGrille(this.currentGrille)
           if(this.grilleValide){
-                      this.calculateGrille()
+            this.calculateGrille()
           }
        }).catch(err => {
          alert(err)
