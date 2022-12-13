@@ -1,25 +1,35 @@
 <ion-content [fullscreen]="true">
   {{startCamera()}}
 
-  <ion-img *ngIf="pictureIs" [src]="imageB64"></ion-img>
-  <table *ngIf="pictureIs" class="infoGrille">
-    <tr><th>coucou</th></tr>
-  </table>
-
-
-  <div *ngIf="filigrane && tmpFili">
-    <ion-img src="assets/filigrane.png" class="filigrane" [style.transform]=valScale></ion-img>
+  <div *ngIf="pictureIs" class="ion-padding">
+    <ion-img  [src]="imageB64" class="captureImage"></ion-img>
+    <div class="grille">
+      <strong>{{currentGrille}}</strong>
+      <br>
+      <table> 
+          <tr><th style="width: 25%;">Inférieur</th><th style="width: 25%;">Parité</th><th style="width: 25%;">Moyenne</th><th style="width: 25%;">Commun</th></tr>
+          <tr><td>{{maxListe[0]}}%</td><td>{{maxListe[1]}}%</td><td>{{maxListe[2]}}%</td><td>{{maxListe[3]}}%</td></tr>
+          <tr><td>{{infoGrille[0]}}%</td><td>{{infoGrille[1]}}%</td><td>{{infoGrille[2]}}%</td><td>{{infoGrille[3]}}%</td></tr>
+      </table>
+    </div>
+    <ion-item>
+      <ion-label>Grille :</ion-label>
+      <ion-input [(ngModel)]=currentGrilleString (change)=changeCurrentGrille()></ion-input>
+    </ion-item>
   </div>
+  
+  <div *ngIf="filigrane && tmpFili"  class="flex-content">
+    <ion-img src="assets/filigrane.png" class="filigrane" ></ion-img>
+  </div>
+
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-fab-button (click)="returnMenu()">
       <ion-icon name="chevron-back-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-
-
   
-  <ion-fab *ngIf="pictureIs" vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab *ngIf="pictureIs && grilleValide" vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="savePicture()">
       <ion-icon name="checkmark-outline"></ion-icon>
     </ion-fab-button>

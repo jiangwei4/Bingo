@@ -68,4 +68,62 @@ export class ListeGrilleService {
     this.listeGrille = [...tmpArray]
     this.infoListeGrille = [...tmpInfo]
   }
+
+  contientGrille(tab : number[]){
+    let cpt = [0,0,0,0,0,0,0,0,0]
+    let compteurFinale = 0
+    tab.forEach((i)=>{
+      if(i <= 9 && cpt[0] < 2)
+        cpt[0] += 1
+      if(i <= 19 && i >= 10 && cpt[1] < 2)
+        cpt[1] += 1
+      if(i <= 29 && i >= 20 && cpt[2] < 2)
+        cpt[2] += 1
+      if(i <= 39  && i >= 30 && cpt[3] < 2)
+        cpt[3] += 1
+      if(i <= 49 && i >= 40 && cpt[4] < 2)
+        cpt[4] += 1
+      if(i <= 59 && i >= 50 && cpt[5] < 2)
+        cpt[5] += 1
+      if(i <= 69 && i >= 60 && cpt[6] < 2)
+        cpt[6] += 1
+      if(i <= 79 && i >= 70 && cpt[7] < 2)
+        cpt[7] += 1
+      if(i >= 80 && cpt[8] < 2)
+        cpt[8] += 1
+      })
+      cpt.forEach((i)=>{
+        compteurFinale += i
+      })
+      if(tab.length == 15 && compteurFinale == 15 && cpt[0] >= 1 && cpt[1] >= 1 && cpt[2] >= 1 && cpt[3] >= 1 && cpt[4] >= 1 && cpt[5] >= 1 && cpt[6] >= 1 && cpt[7] >= 1 && cpt[8] >= 1)
+        return true
+    return false
+  }
+
+  impari(g1: number[]){
+    let cpt = 0
+    g1.forEach((i) => {
+      if(i % 2 == 0)
+        cpt += 1
+    })
+    return cpt
+  }
+
+  centreGrilles(g1: number[]){
+    let cpt = 0
+    g1.forEach((i) => {
+      cpt += i
+    })
+    cpt = cpt / 15
+    return Math.ceil(cpt)
+  }
+
+  plg(g1: number[]){
+    let cpt = 0
+    g1.forEach((i) => {
+      if(i <= 45)
+        cpt += 1
+    })
+    return cpt
+  }
 }

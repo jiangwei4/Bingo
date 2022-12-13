@@ -20,20 +20,20 @@
       </td>
     </tr>
   </table>
-  <fieldset>
-    <table>
-      <tr><th style="width: 25%;">Inférieur</th><th style="width: 25%;">Parité</th><th style="width: 25%;">Moyenne</th><th style="width: 25%;">Commun</th></tr>
-      <tr><td>{{maxListe[0]}}%</td><td>{{maxListe[1]}}%</td><td>{{maxListe[2]}}%</td><td>{{maxListe[3]}}%</td></tr>
-      <tr><td>{{infoGrille[0]}}%</td><td>{{infoGrille[1]}}%</td><td>{{infoGrille[2]}}%</td><td>{{infoGrille[3]}}%</td></tr>
-    </table>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button color="warning" fill="solid" (click)="effacer()">Effacer</ion-button>
-      </ion-buttons>
-      <ion-buttons slot="secondary">
-        <ion-button  (click)="add()" fill="solid" color="primary" [disabled]="disabled()">Ajouter</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </fieldset>
+    <fieldset>
+      <table>
+        <tr><th style="width: 25%;">Inférieur</th><th style="width: 25%;">Parité</th><th style="width: 25%;">Moyenne</th><th style="width: 25%;">Commun</th></tr>
+        <tr><td>{{maxListe[0]}}%</td><td>{{maxListe[1]}}%</td><td>{{maxListe[2]}}%</td><td>{{maxListe[3]}}%</td></tr>
+        <tr><td>{{infoGrille[0]}}%</td><td>{{infoGrille[1]}}%</td><td>{{infoGrille[2]}}%</td><td>{{infoGrille[3]}}%</td></tr>
+      </table>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button color="warning" fill="solid" (click)="effacer()">Effacer</ion-button>
+        </ion-buttons>
+        <ion-buttons slot="secondary">
+          <ion-button  (click)="add()" fill="solid" color="primary" [disabled]="disabled()">Ajouter</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </fieldset>
   <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
